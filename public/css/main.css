@@ -1,0 +1,100 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+html {
+    font: normal 12pt sans-serif;
+}
+
+.btn {
+    border-radius: 0.4rem;
+    width: 10rem;
+    height: 2.3rem;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 1px solid grey;
+    margin: 0.5rem;
+    background: rgb(37, 89, 219);
+    color: white;
+}
+
+.btn:hover {
+    background: rgb(91, 137, 252);
+    cursor: pointer;
+}
+
+.btn:active {
+    border: 2px solid red;
+}
+
+.inp {
+    border-radius: 0.4rem;
+    height: 2.3rem;
+    width: 12rem;
+    border: 1px solid grey;
+    margin: 0.5rem;
+    padding: 0 0.5rem;
+    font-size: 1rem;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+tr:nth-child(even), li:nth-child(even) {
+    background-color: #E2E2E2;
+}
+
+li {
+    list-style-type: none;
+}
+
+body {
+    padding: 1em;
+}
+
+table {
+    width: 80%;
+    border-top: 1px solid grey;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+}
+
+.megh_strok {
+    padding-bottom: 10px;
+}
+
+.msg {
+    clear: both;
+    color: red;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.cont {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.elm {
+    margin: 10px;
+    width: 40%;
+}
+
+@media screen and (max-width: 800px) {
+    table, .wdth {
+        margin: 0.5rem;
+        width: 98%;
+    }
+
+}
+
