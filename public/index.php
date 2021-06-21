@@ -6,6 +6,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require '../vendor/autoload.php';
 
+
 class Cookie
 {
     public function deleteCookie(Response $response, $key)
@@ -44,18 +45,14 @@ class Cookie
     }
 }
 
-class Auth 
+trait LoginHelper
 {
-    private $container;
+    private $id = 'id';
+    private $token = 'token';
+    private $lifeTimeCookie = '10';
 
-    public function __construct($c)
+    public function ExtendCookie($request, $response)
     {
-        $this->container = $c;
-    }
-
-    public function __invoke($request, $response, $next)
-    {
-        // проверяем наличие сохраненной cookies
         $id_user = $this->container->cookie->getCookieValue($request, 'id');
         $token = $this->container->cookie->getCookieValue($request, 'token');
 
@@ -77,6 +74,25 @@ class Auth
                 // удалить cookies
             }
         }
+
+        return $response;
+    }
+}
+
+class Auth 
+{
+    use LoginHelper;
+
+    private $container;
+
+    public function __construct($c)
+    {
+        $this->container = $c;
+    }
+
+    public function __invoke($request, $response, $next)
+    {
+        $response = $this->ExtendCookie($request, $response);
 
         if ($this->isAuthorized()) {
             $response = $next($request, $response);
